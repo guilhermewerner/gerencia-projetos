@@ -62,6 +62,10 @@ button.accept-policy {
     }
 }
 
+.table {
+    margin-bottom: 0 !important;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

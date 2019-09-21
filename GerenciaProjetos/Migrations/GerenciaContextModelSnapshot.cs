@@ -3,17 +3,14 @@ using System;
 using GerenciaProjetos.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using AppContext = GerenciaProjetos.Data.AppContext;
 
 namespace GerenciaProjetos.Migrations
 {
-    [DbContext(typeof(AppContext))]
-    [Migration("20190921193724_1")]
-    partial class _1
+    [DbContext(typeof(GerenciaContext))]
+    partial class GerenciaContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,8 +27,6 @@ namespace GerenciaProjetos.Migrations
 
                     b.Property<DateTime>("DataCadastro");
 
-                    b.Property<int?>("DesenvolvedorId1");
-
                     b.Property<bool>("FoiResolvido");
 
                     b.Property<string>("Prioridade");
@@ -39,8 +34,6 @@ namespace GerenciaProjetos.Migrations
                     b.HasKey("DesenvolvedorId", "RequisitoId");
 
                     b.HasIndex("CriadorId");
-
-                    b.HasIndex("DesenvolvedorId1");
 
                     b.HasIndex("RequisitoId");
 
@@ -77,11 +70,7 @@ namespace GerenciaProjetos.Migrations
 
                     b.Property<int>("ProjetoId");
 
-                    b.Property<int?>("DesenvolvedorId1");
-
                     b.HasKey("DesenvolvedorId", "ProjetoId");
-
-                    b.HasIndex("DesenvolvedorId1");
 
                     b.HasIndex("ProjetoId");
 
@@ -94,13 +83,9 @@ namespace GerenciaProjetos.Migrations
 
                     b.Property<int>("RequisitoId");
 
-                    b.Property<int?>("DesenvolvedorId1");
-
                     b.Property<TimeSpan>("TempoGasto");
 
                     b.HasKey("DesenvolvedorId", "RequisitoId");
-
-                    b.HasIndex("DesenvolvedorId1");
 
                     b.HasIndex("RequisitoId");
 
@@ -163,7 +148,8 @@ namespace GerenciaProjetos.Migrations
 
                     b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Desenvolvedor")
                         .WithMany()
-                        .HasForeignKey("DesenvolvedorId1");
+                        .HasForeignKey("DesenvolvedorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("GerenciaProjetos.Models.Requisito", "Requisito")
                         .WithMany()
@@ -175,7 +161,8 @@ namespace GerenciaProjetos.Migrations
                 {
                     b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Desenvolvedor")
                         .WithMany()
-                        .HasForeignKey("DesenvolvedorId1");
+                        .HasForeignKey("DesenvolvedorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("GerenciaProjetos.Models.Projeto", "Projeto")
                         .WithMany()
@@ -187,7 +174,8 @@ namespace GerenciaProjetos.Migrations
                 {
                     b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Desenvolvedor")
                         .WithMany()
-                        .HasForeignKey("DesenvolvedorId1");
+                        .HasForeignKey("DesenvolvedorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("GerenciaProjetos.Models.Requisito", "Requisito")
                         .WithMany()

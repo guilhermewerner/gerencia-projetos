@@ -44,18 +44,17 @@ namespace GerenciaProjetos.Migrations
                 columns: table => new
                 {
                     DesenvolvedorId = table.Column<int>(nullable: false),
-                    ProjetoId = table.Column<int>(nullable: false),
-                    DesenvolvedorId1 = table.Column<int>(nullable: true)
+                    ProjetoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DesenvolvedorProjeto", x => new { x.DesenvolvedorId, x.ProjetoId });
                     table.ForeignKey(
-                        name: "FK_DesenvolvedorProjeto_Desenvolvedores_DesenvolvedorId1",
-                        column: x => x.DesenvolvedorId1,
+                        name: "FK_DesenvolvedorProjeto_Desenvolvedores_DesenvolvedorId",
+                        column: x => x.DesenvolvedorId,
                         principalTable: "Desenvolvedores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DesenvolvedorProjeto_Projetos_ProjetoId",
                         column: x => x.ProjetoId,
@@ -93,28 +92,17 @@ namespace GerenciaProjetos.Migrations
                 columns: table => new
                 {
                     DesenvolvedorId = table.Column<int>(nullable: false),
-                    RequisitoId = table.Column<int>(nullable: false),
-                    DesenvolvedorId1 = table.Column<int>(nullable: true),
-                    Prioridade = table.Column<string>(nullable: true),
-                    DataCadastro = table.Column<DateTime>(nullable: false),
-                    CriadorId = table.Column<int>(nullable: false),
-                    FoiResolvido = table.Column<bool>(nullable: false)
+                    RequisitoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bugs", x => new { x.DesenvolvedorId, x.RequisitoId });
                     table.ForeignKey(
-                        name: "FK_Bugs_Desenvolvedores_CriadorId",
-                        column: x => x.CriadorId,
+                        name: "FK_Bugs_Desenvolvedores_DesenvolvedorId",
+                        column: x => x.DesenvolvedorId,
                         principalTable: "Desenvolvedores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Bugs_Desenvolvedores_DesenvolvedorId1",
-                        column: x => x.DesenvolvedorId1,
-                        principalTable: "Desenvolvedores",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bugs_Requisitos_RequisitoId",
                         column: x => x.RequisitoId,
@@ -128,19 +116,17 @@ namespace GerenciaProjetos.Migrations
                 columns: table => new
                 {
                     DesenvolvedorId = table.Column<int>(nullable: false),
-                    RequisitoId = table.Column<int>(nullable: false),
-                    DesenvolvedorId1 = table.Column<int>(nullable: true),
-                    TempoGasto = table.Column<TimeSpan>(nullable: false)
+                    RequisitoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DesenvolvedorRequisito", x => new { x.DesenvolvedorId, x.RequisitoId });
                     table.ForeignKey(
-                        name: "FK_DesenvolvedorRequisito_Desenvolvedores_DesenvolvedorId1",
-                        column: x => x.DesenvolvedorId1,
+                        name: "FK_DesenvolvedorRequisito_Desenvolvedores_DesenvolvedorId",
+                        column: x => x.DesenvolvedorId,
                         principalTable: "Desenvolvedores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DesenvolvedorRequisito_Requisitos_RequisitoId",
                         column: x => x.RequisitoId,
@@ -150,34 +136,14 @@ namespace GerenciaProjetos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bugs_CriadorId",
-                table: "Bugs",
-                column: "CriadorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bugs_DesenvolvedorId1",
-                table: "Bugs",
-                column: "DesenvolvedorId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Bugs_RequisitoId",
                 table: "Bugs",
                 column: "RequisitoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DesenvolvedorProjeto_DesenvolvedorId1",
-                table: "DesenvolvedorProjeto",
-                column: "DesenvolvedorId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_DesenvolvedorProjeto_ProjetoId",
                 table: "DesenvolvedorProjeto",
                 column: "ProjetoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DesenvolvedorRequisito_DesenvolvedorId1",
-                table: "DesenvolvedorRequisito",
-                column: "DesenvolvedorId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DesenvolvedorRequisito_RequisitoId",

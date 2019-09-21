@@ -9,11 +9,9 @@ namespace GerenciaProjetos.Models
 {
     public class DesenvolvedorProjeto
     {
-        [Key, Column(Order = 1)]
         public int DesenvolvedorId { get; set; }
         public Desenvolvedor Desenvolvedor { get; set; }
-
-        [Key, Column(Order = 2)]
+        
         public int ProjetoId { get; set; }
         public Projeto Projeto { get; set; }
     }

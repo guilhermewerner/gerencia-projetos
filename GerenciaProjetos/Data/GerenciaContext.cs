@@ -7,7 +7,7 @@ using GerenciaProjetos.Models;
 
 namespace GerenciaProjetos.Data
 {
-    public class AppContext : DbContext
+    public class GerenciaContext : DbContext
     {
         public DbSet<Bug> Bugs { get; set; }
         public DbSet<Desenvolvedor> Desenvolvedores { get; set; }
@@ -17,7 +17,7 @@ namespace GerenciaProjetos.Data
         public DbSet<DesenvolvedorProjeto> DesenvolvedorProjeto { get; set; }
         public DbSet<DesenvolvedorRequisito> DesenvolvedorRequisito { get; set; }
 
-        public AppContext(DbContextOptions o) : base(o)
+        public GerenciaContext(DbContextOptions o) : base(o)
         {
 
         }
@@ -25,11 +25,11 @@ namespace GerenciaProjetos.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Bug>()
-                .HasKey(c => new { c.DesenvolvedorId, c.RequisitoId });
+                .HasKey(b => new { b.DesenvolvedorId, b.RequisitoId });
             modelBuilder.Entity<DesenvolvedorProjeto>()
-                .HasKey(c => new { c.DesenvolvedorId, c.ProjetoId });
+                .HasKey(p => new { p.DesenvolvedorId, p.ProjetoId });
             modelBuilder.Entity<DesenvolvedorRequisito>()
-                .HasKey(c => new { c.DesenvolvedorId, c.RequisitoId });
+                .HasKey(r => new { r.DesenvolvedorId, r.RequisitoId });
         }
     }
 }

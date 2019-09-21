@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using AppContext = GerenciaProjetos.Data.AppContext;
+using GerenciaContext = GerenciaProjetos.Data.GerenciaContext;
 
 namespace GerenciaProjetos
 {
@@ -34,7 +34,7 @@ namespace GerenciaProjetos
 
             services.AddRouting(options => options.LowercaseUrls = true);
 
-            services.AddDbContext<AppContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<GerenciaContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

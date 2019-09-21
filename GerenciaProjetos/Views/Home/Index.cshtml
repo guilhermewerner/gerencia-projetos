@@ -7,8 +7,198 @@
 
 <section class="py-3">
     <div class="card">
-        <div class="card-body">
-            a
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Desenvolvedores
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        <a asp-area="" asp-controller="Home" asp-action="AddDev">
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <table class="table table-borderless table-hover">
+            <thead class="border-bottom">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Admin</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Desenvolvedor d in ViewBag.Desenvolvedores)
+                {
+                    <tr>
+                        <td>@d.Id</td>
+                        <td>@d.Nome</td>
+                        <td>@d.Email</td>
+                        <td>
+                            @if (d.EAdmin == true)
+                            {
+                                <span>Sim</span>
+                            }
+                            else
+                            {
+                                <span>Não</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-area="" asp-controller="Home" asp-action="EditDev" asp-route-id="@d.Id">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-area="" asp-controller="Home" asp-action="DelDev" asp-route-id="@d.Id">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="py-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Projetos
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-borderless table-hover">
+            <thead class="border-bottom">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Data de Entrega</th>
+                    <th scope="col">Solicitante</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Guilherme</td>
+                    <td>Abril</td>
+                    <td>Kewin</td>
+                    <td>
+                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="py-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Requisitos
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-borderless table-hover">
+            <thead class="border-bottom">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Observações</th>
+                    <th scope="col">Data de Entrega</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Guilherme</td>
+                    <td>Abril</td>
+                    <td>Kewin</td>
+                    <td>
+                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="py-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    Bugs
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-borderless table-hover">
+            <thead class="border-bottom">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Prioridade</th>
+                    <th scope="col">Data de Cadastro</th>
+                    <th scope="col">Data de Entrega</th>
+                    <th scope="col">Resolvido</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Guilherme</td>
+                    <td>Abril</td>
+                    <td>Kewin</td>
+                    <td>Não</td>
+                    <td>
+                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
