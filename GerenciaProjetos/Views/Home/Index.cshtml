@@ -192,15 +192,15 @@
                 @foreach (Bug b in ViewBag.Bugs)
                 {
                     <tr>
-                        <td>@b.DesenvolvedorId-@b.RequisitoId</td>
-                        <td>@b.Criador</td>
+                        <td>@b.Id</td>
+                        <td>@b.CriadorId</td>
                         <td>@b.DataCadastro</td>
                         <td>@b.Prioridade</td>
                         <td>
-                            <a asp-area="" asp-controller="Bugs" asp-action="Edit" asp-route-id="@b.DesenvolvedorId, @b.RequisitoId">
+                            <a asp-area="" asp-controller="Bugs" asp-action="Edit" asp-route-id="@b.Id">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a asp-area="" asp-controller="Bugs" asp-action="Del" asp-route-id="@b.DesenvolvedorId, @b.RequisitoId">
+                            <a asp-area="" asp-controller="Bugs" asp-action="Del" asp-route-id="@b.Id">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

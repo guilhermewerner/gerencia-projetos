@@ -9,11 +9,11 @@ using GerenciaContext = GerenciaProjetos.Data.GerenciaContext;
 
 namespace GerenciaProjetos.Controllers
 {
-    public class DesenvolvedorsController : Controller
+    public class DesenvolvedoresController : Controller
     {
         private GerenciaContext ctx;
 
-        public DesenvolvedorsController(GerenciaContext ctx)
+        public DesenvolvedoresController(GerenciaContext ctx)
         {
             this.ctx = ctx;
         }
