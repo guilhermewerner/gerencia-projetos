@@ -34,3 +34,5 @@ C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcor
 C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Requisitos\Index.g.cshtml.cs
 C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Desenvolvedores\Form.g.cshtml.cs
 C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Desenvolvedores\Index.g.cshtml.cs
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Bugs\Form.g.cshtml.cs
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Bugs\Index.g.cshtml.cs

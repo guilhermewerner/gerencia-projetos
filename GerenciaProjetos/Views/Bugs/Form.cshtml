@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model GerenciaProjetos.Models.Bug
+
+<h3>@ViewData["Title"]</h3>
+
+<section class="py-3">
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                    <label>Desenvolvedor</label>
+                    <select asp-for="DesenvolvedorId" class="form-control" asp-items="ViewBag.Desenvolvedores">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Requisito</label>
+                    <select asp-for="RequisitoId" class="form-control" asp-items="ViewBag.Requisitos">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Criador</label>
+                    <select asp-for="CriadorId" class="form-control" asp-items="ViewBag.Desenvolvedores">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Prioridade</label>
+                    <select asp-for="Prioridade" class="form-control">
+                        <option>Normal</option>
+                        <option>Baixa</option>
+                        <option>Alta</option>
+                    </select>
+                </div>
+                <div class="text-right">
+                    <a class="btn btn-secondary" asp-area="" asp-controller="Bugs" asp-action="Index" asp-route-id="">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Requisitos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<section class="py-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    1
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        <a asp-area="" asp-controller="Bugs" asp-action="New">
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-borderless table-hover">
+            <thead class="border-bottom">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Criador</th>
+                    <th scope="col">Data de Cadastro</th>
+                    <th scope="col">Prioridade</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Bug b in ViewBag.Bugs)
+                {
+                    <tr>
+                        <td>@b.DesenvolvedorId-@b.RequisitoId</td>
+                        <td>@b.Criador</td>
+                        <td>@b.DataCadastro</td>
+                        <td>@b.Prioridade</td>
+                        <td>
+                            <a asp-area="" asp-controller="Bugs" asp-action="Edit" asp-route-id="@b.DesenvolvedorId, @b.RequisitoId">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-area="" asp-controller="Bugs" asp-action="Del" asp-route-id="@b.DesenvolvedorId, @b.RequisitoId">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -19,21 +19,26 @@ namespace GerenciaProjetos.Migrations
 
             modelBuilder.Entity("GerenciaProjetos.Models.Bug", b =>
                 {
-                    b.Property<int>("DesenvolvedorId");
-
-                    b.Property<int>("RequisitoId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("CriadorId");
 
                     b.Property<DateTime>("DataCadastro");
 
+                    b.Property<int>("DesenvolvedorId");
+
                     b.Property<bool>("FoiResolvido");
 
                     b.Property<string>("Prioridade");
 
-                    b.HasKey("DesenvolvedorId", "RequisitoId");
+                    b.Property<int>("RequisitoId");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("CriadorId");
+
+                    b.HasIndex("DesenvolvedorId");
 
                     b.HasIndex("RequisitoId");
 

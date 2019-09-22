@@ -23,6 +23,7 @@ namespace GerenciaProjetos.Controllers
             ViewBag.Desenvolvedores = ctx.Desenvolvedores;
             ViewBag.Projetos = ctx.Projetos;
             ViewBag.Requisitos = ctx.Requisitos;
+            ViewBag.Bugs = ctx.Bugs;
 
             return View();
         }

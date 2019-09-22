@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenciaProjetos.Migrations
 {
     [DbContext(typeof(GerenciaContext))]
-    [Migration("20190921210546_1")]
+    [Migration("20190922115736_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,11 +21,26 @@ namespace GerenciaProjetos.Migrations
 
             modelBuilder.Entity("GerenciaProjetos.Models.Bug", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CriadorId");
+
+                    b.Property<DateTime>("DataCadastro");
+
                     b.Property<int>("DesenvolvedorId");
+
+                    b.Property<bool>("FoiResolvido");
+
+                    b.Property<string>("Prioridade");
 
                     b.Property<int>("RequisitoId");
 
-                    b.HasKey("DesenvolvedorId", "RequisitoId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("CriadorId");
+
+                    b.HasIndex("DesenvolvedorId");
 
                     b.HasIndex("RequisitoId");
 
@@ -131,6 +146,11 @@ namespace GerenciaProjetos.Migrations
 
             modelBuilder.Entity("GerenciaProjetos.Models.Bug", b =>
                 {
+                    b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Criador")
+                        .WithMany()
+                        .HasForeignKey("CriadorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Desenvolvedor")
                         .WithMany()
                         .HasForeignKey("DesenvolvedorId")

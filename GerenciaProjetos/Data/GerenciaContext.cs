@@ -24,8 +24,6 @@ namespace GerenciaProjetos.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Bug>()
-                .HasKey(b => new { b.DesenvolvedorId, b.RequisitoId });
             modelBuilder.Entity<DesenvolvedorProjeto>()
                 .HasKey(p => new { p.DesenvolvedorId, p.ProjetoId });
             modelBuilder.Entity<DesenvolvedorRequisito>()

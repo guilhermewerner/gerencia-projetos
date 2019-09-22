@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenciaProjetos.Migrations
 {
     [DbContext(typeof(GerenciaContext))]
-    [Migration("20190921210818_2")]
+    [Migration("20190922115947_2")]
     partial class _2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,21 +21,26 @@ namespace GerenciaProjetos.Migrations
 
             modelBuilder.Entity("GerenciaProjetos.Models.Bug", b =>
                 {
-                    b.Property<int>("DesenvolvedorId");
-
-                    b.Property<int>("RequisitoId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("CriadorId");
 
                     b.Property<DateTime>("DataCadastro");
 
+                    b.Property<int>("DesenvolvedorId");
+
                     b.Property<bool>("FoiResolvido");
 
                     b.Property<string>("Prioridade");
 
-                    b.HasKey("DesenvolvedorId", "RequisitoId");
+                    b.Property<int>("RequisitoId");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("CriadorId");
+
+                    b.HasIndex("DesenvolvedorId");
 
                     b.HasIndex("RequisitoId");
 

@@ -167,11 +167,11 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    Bugs
+                    <a class="text-decoration-none" asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a>
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <a asp-area="" asp-controller="Bugs" asp-action="New">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -182,29 +182,30 @@
             <thead class="border-bottom">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Prioridade</th>
+                    <th scope="col">Criador</th>
                     <th scope="col">Data de Cadastro</th>
-                    <th scope="col">Data de Entrega</th>
-                    <th scope="col">Resolvido</th>
+                    <th scope="col">Prioridade</th>
                     <th scope="col">Opções</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Guilherme</td>
-                    <td>Abril</td>
-                    <td>Kewin</td>
-                    <td>Não</td>
-                    <td>
-                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </td>
-                </tr>
+                @foreach (Bug b in ViewBag.Bugs)
+                {
+                    <tr>
+                        <td>@b.DesenvolvedorId-@b.RequisitoId</td>
+                        <td>@b.Criador</td>
+                        <td>@b.DataCadastro</td>
+                        <td>@b.Prioridade</td>
+                        <td>
+                            <a asp-area="" asp-controller="Bugs" asp-action="Edit" asp-route-id="@b.DesenvolvedorId, @b.RequisitoId">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-area="" asp-controller="Bugs" asp-action="Del" asp-route-id="@b.DesenvolvedorId, @b.RequisitoId">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

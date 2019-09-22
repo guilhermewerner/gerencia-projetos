@@ -10,7 +10,7 @@ namespace GerenciaProjetos.Models
     public class DesenvolvedorRequisito
     {
         public int DesenvolvedorId { get; set; }
-        public Requisito Desenvolvedor { get; set; }
+        public Desenvolvedor Desenvolvedor { get; set; }
         
         public int RequisitoId { get; set; }
         public Requisito Requisito { get; set; }
