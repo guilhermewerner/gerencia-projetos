@@ -13,7 +13,6 @@ namespace GerenciaProjetos.Controllers
     {
         private GerenciaContext ctx;
         
-
         public HomeController(GerenciaContext ctx)
         {
             this.ctx = ctx;
@@ -24,7 +23,8 @@ namespace GerenciaProjetos.Controllers
         public IActionResult Index()
         {
             ViewBag.Desenvolvedores = ctx.Desenvolvedores;
-            
+            ViewBag.Projetos = ctx.Projetos;
+
             return View();
         }
 
@@ -32,74 +32,7 @@ namespace GerenciaProjetos.Controllers
         {
             return View();
         }
-
-        /* DESENVOLVEDOR */
-
-        public IActionResult AddDev()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult AddDev(Desenvolvedor dev)
-        {
-            if (ModelState.IsValid)
-            {
-                ctx.Desenvolvedores.Add(dev);
-                ctx.SaveChanges();
-
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return View("AddDev", dev);
-            }
-        }
-
-        public IActionResult EditDev(int id)
-        {
-            Desenvolvedor dev = ctx.Desenvolvedores.Find(id);
-
-            if (dev != null)
-            {
-                return View("AddDev", dev);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult EditDev(Desenvolvedor dev)
-        {
-            if (ModelState.IsValid)
-            {
-                ctx.Desenvolvedores.Update(dev);
-                ctx.SaveChanges();
-
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return View("AddDev", dev);
-            }
-        }
-
-        public IActionResult DelDev(int id)
-        {
-            Desenvolvedor dev = ctx.Desenvolvedores.Find(id);
-
-            if (dev != null)
-            {
-                ctx.Desenvolvedores.Remove(dev);
-                ctx.SaveChanges();
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

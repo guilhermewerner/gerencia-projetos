@@ -28,3 +28,7 @@ C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcor
 C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\GerenciaProjetos.dll
 C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\GerenciaProjetos.pdb
 C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\GerenciaProjetos.csproj.CopyComplete
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Desenvolvedor\Form.g.cshtml.cs
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Desenvolvedor\Index.g.cshtml.cs
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Projetos\Form.g.cshtml.cs
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Projetos\Index.g.cshtml.cs

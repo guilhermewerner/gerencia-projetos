@@ -3,18 +3,18 @@
 }
 
 <h3>@ViewData["Title"]</h3>
-<p>Manage your account settings, and set up social network integration.</p>
+<p>Subtitulo.</p>
 
 <section class="py-3">
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    Desenvolvedores
+                    <a class="text-decoration-none" asp-area="" asp-controller="Desenvolvedor" asp-action="Index">Desenvolvedores</a>
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <a asp-area="" asp-controller="Home" asp-action="AddDev">
+                        <a asp-area="" asp-controller="Desenvolvedor" asp-action="New">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -49,10 +49,10 @@
                             }
                         </td>
                         <td>
-                            <a asp-area="" asp-controller="Home" asp-action="EditDev" asp-route-id="@d.Id">
+                            <a asp-area="" asp-controller="Desenvolvedor" asp-action="Edit" asp-route-id="@d.Id">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a asp-area="" asp-controller="Home" asp-action="DelDev" asp-route-id="@d.Id">
+                            <a asp-area="" asp-controller="Desenvolvedor" asp-action="Del" asp-route-id="@d.Id">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
@@ -68,11 +68,11 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    Projetos
+                    <a class="text-decoration-none" asp-area="" asp-controller="Projetos" asp-action="Index">Projetos</a>
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <a asp-area="" asp-controller="Projetos" asp-action="New">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -90,20 +90,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Guilherme</td>
-                    <td>Abril</td>
-                    <td>Kewin</td>
-                    <td>
-                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </td>
-                </tr>
+                @foreach (Projeto p in ViewBag.Projetos)
+                {
+                    <tr>
+                        <td>@p.Id</td>
+                        <td>@p.Nome</td>
+                        <td>@p.DataEntrega</td>
+                        <td>@p.Solicitante</td>
+                        <td>
+                            <a asp-area="" asp-controller="Projetos" asp-action="Edit" asp-route-id="@p.Id">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-area="" asp-controller="Projetos" asp-action="Del" asp-route-id="@p.Id">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
