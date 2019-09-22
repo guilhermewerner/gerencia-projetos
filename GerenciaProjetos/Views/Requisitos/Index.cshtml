@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Projetos";
+    ViewData["Title"] = "Requisitos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <a asp-area="" asp-controller="Projetos" asp-action="New">
+                        <a asp-area="" asp-controller="Requisitos" asp-action="New">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -26,25 +26,27 @@
             <thead class="border-bottom">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Observações</th>
+                    <th scope="col">Data de Cadastro</th>
                     <th scope="col">Data de Entrega</th>
-                    <th scope="col">Solicitante</th>
                     <th scope="col">Opções</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (Projeto p in ViewBag.Projetos)
+                @foreach (Requisito r in ViewBag.Requisitos)
                 {
                     <tr>
-                        <td>@p.Id</td>
-                        <td>@p.Nome</td>
-                        <td>@p.DataEntrega</td>
-                        <td>@p.Solicitante</td>
+                        <td>@r.Id</td>
+                        <td>@r.Descricao</td>
+                        <td>@r.Observacoes</td>
+                        <td>@r.DataCadastro</td>
+                        <td>@r.DataEntrega</td>
                         <td>
-                            <a asp-area="" asp-controller="Projetos" asp-action="Edit" asp-route-id="@p.Id">
+                            <a asp-area="" asp-controller="Requisitos" asp-action="Edit" asp-route-id="@r.Id">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a asp-area="" asp-controller="Projetos" asp-action="Del" asp-route-id="@p.Id">
+                            <a asp-area="" asp-controller="Requisitos" asp-action="Del" asp-route-id="@r.Id">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

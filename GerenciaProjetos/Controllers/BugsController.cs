@@ -17,7 +17,7 @@ namespace GerenciaProjetos.Controllers
         {
             this.ctx = ctx;
 
-            Desenvolvedor dev = ctx.Desenvolvedores.Find(1);
+            Requisito dev = ctx.Requisitos.Find(1);
         }
 
         public IActionResult Index()

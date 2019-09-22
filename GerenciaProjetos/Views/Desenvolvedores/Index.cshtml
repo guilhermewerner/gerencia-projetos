@@ -5,7 +5,6 @@
 }
 
 <h3>@ViewData["Title"]</h3>
-<p>Subtitulo.</p>
 
 <section class="py-3">
     <div class="card">
@@ -16,7 +15,7 @@
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <a asp-area="" asp-controller="Desenvolvedor" asp-action="New">
+                        <a asp-area="" asp-controller="Desenvolvedores" asp-action="New">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -51,10 +50,10 @@
                             }
                         </td>
                         <td>
-                            <a asp-area="" asp-controller="Desenvolvedor" asp-action="Edit" asp-route-id="@d.Id">
+                            <a asp-area="" asp-controller="Desenvolvedores" asp-action="Edit" asp-route-id="@d.Id">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a asp-area="" asp-controller="Desenvolvedor" asp-action="Del" asp-route-id="@d.Id">
+                            <a asp-area="" asp-controller="Desenvolvedores" asp-action="Del" asp-route-id="@d.Id">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

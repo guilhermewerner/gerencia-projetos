@@ -16,8 +16,6 @@ namespace GerenciaProjetos.Controllers
         public ProjetosController(GerenciaContext ctx)
         {
             this.ctx = ctx;
-
-            Desenvolvedor dev = ctx.Desenvolvedores.Find(1);
         }
 
         public IActionResult Index()
@@ -29,6 +27,8 @@ namespace GerenciaProjetos.Controllers
 
         public IActionResult New()
         {
+            ViewData["Title"] = "Novo";
+
             return View("Form");
         }
 
@@ -50,6 +50,8 @@ namespace GerenciaProjetos.Controllers
 
         public IActionResult Edit(int id)
         {
+            ViewData["Title"] = "Editar";
+
             Projeto proj = ctx.Projetos.Find(id);
 
             if (proj != null)

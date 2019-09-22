@@ -10,7 +10,7 @@ namespace GerenciaProjetos.Models
     public class Bug
     {
         public int DesenvolvedorId { get; set; }
-        public Desenvolvedor Desenvolvedor { get; set; }
+        public Requisito Desenvolvedor { get; set; }
         
         public int RequisitoId { get; set; }
         public Requisito Requisito { get; set; }
@@ -20,7 +20,7 @@ namespace GerenciaProjetos.Models
         public DateTime DataCadastro { get; set; }
         
         public int CriadorId { get; set; }
-        public Desenvolvedor Criador { get; set; }
+        public Requisito Criador { get; set; }
 
         public bool FoiResolvido { get; set; }
     }

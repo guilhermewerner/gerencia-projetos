@@ -16,14 +16,13 @@ namespace GerenciaProjetos.Controllers
         public HomeController(GerenciaContext ctx)
         {
             this.ctx = ctx;
-
-            Desenvolvedor dev = ctx.Desenvolvedores.Find(1);
         }
 
         public IActionResult Index()
         {
             ViewBag.Desenvolvedores = ctx.Desenvolvedores;
             ViewBag.Projetos = ctx.Projetos;
+            ViewBag.Requisitos = ctx.Requisitos;
 
             return View();
         }

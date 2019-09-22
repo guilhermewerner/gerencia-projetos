@@ -9,26 +9,26 @@ using GerenciaContext = GerenciaProjetos.Data.GerenciaContext;
 
 namespace GerenciaProjetos.Controllers
 {
-    public class DesenvolvedorController : Controller
+    public class DesenvolvedoresController : Controller
     {
         private GerenciaContext ctx;
 
-        public DesenvolvedorController(GerenciaContext ctx)
+        public DesenvolvedoresController(GerenciaContext ctx)
         {
             this.ctx = ctx;
-
-            Desenvolvedor dev = ctx.Desenvolvedores.Find(1);
         }
 
         public IActionResult Index()
         {
             ViewBag.Desenvolvedores = ctx.Desenvolvedores;
-            
+
             return View();
         }
 
         public IActionResult New()
         {
+            ViewData["Title"] = "Novo";
+
             return View("Form");
         }
 
@@ -50,6 +50,8 @@ namespace GerenciaProjetos.Controllers
 
         public IActionResult Edit(int id)
         {
+            ViewData["Title"] = "Editar";
+
             Desenvolvedor dev = ctx.Desenvolvedores.Find(id);
 
             if (dev != null)

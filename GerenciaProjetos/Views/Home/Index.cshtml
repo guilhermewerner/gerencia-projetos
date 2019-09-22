@@ -3,18 +3,17 @@
 }
 
 <h3>@ViewData["Title"]</h3>
-<p>Subtitulo.</p>
 
 <section class="py-3">
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    <a class="text-decoration-none" asp-area="" asp-controller="Desenvolvedor" asp-action="Index">Desenvolvedores</a>
+                    <a class="text-decoration-none" asp-area="" asp-controller="Desenvolvedores" asp-action="Index">Desenvolvedores</a>
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <a asp-area="" asp-controller="Desenvolvedor" asp-action="New">
+                        <a asp-area="" asp-controller="Desenvolvedores" asp-action="New">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -49,10 +48,10 @@
                             }
                         </td>
                         <td>
-                            <a asp-area="" asp-controller="Desenvolvedor" asp-action="Edit" asp-route-id="@d.Id">
+                            <a asp-area="" asp-controller="Desenvolvedores" asp-action="Edit" asp-route-id="@d.Id">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a asp-area="" asp-controller="Desenvolvedor" asp-action="Del" asp-route-id="@d.Id">
+                            <a asp-area="" asp-controller="Desenvolvedores" asp-action="Del" asp-route-id="@d.Id">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
@@ -117,11 +116,11 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    Requisitos
+                    <a class="text-decoration-none" asp-area="" asp-controller="Requisitos" asp-action="Index">Requisitos</a>
                 </div>
                 <div class="col-6">
                     <div class="text-right">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <a asp-area="" asp-controller="Requisitos" asp-action="New">
                             <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
@@ -134,25 +133,30 @@
                     <th scope="col">#</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Observações</th>
+                    <th scope="col">Data de Cadastro</th>
                     <th scope="col">Data de Entrega</th>
                     <th scope="col">Opções</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Guilherme</td>
-                    <td>Abril</td>
-                    <td>Kewin</td>
-                    <td>
-                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a asp-area="" asp-controller="Home" asp-action="" asp-route-id="u.Id">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </td>
-                </tr>
+                @foreach (Requisito r in ViewBag.Requisitos)
+                {
+                    <tr>
+                        <td>@r.Id</td>
+                        <td>@r.Descricao</td>
+                        <td>@r.Observacoes</td>
+                        <td>@r.DataCadastro</td>
+                        <td>@r.DataEntrega</td>
+                        <td>
+                            <a asp-area="" asp-controller="Requisitos" asp-action="Edit" asp-route-id="@r.Id">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-area="" asp-controller="Requisitos" asp-action="Del" asp-route-id="@r.Id">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
