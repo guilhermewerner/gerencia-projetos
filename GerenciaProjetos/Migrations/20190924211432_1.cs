@@ -95,20 +95,14 @@ namespace GerenciaProjetos.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     DesenvolvedorId = table.Column<int>(nullable: false),
                     RequisitoId = table.Column<int>(nullable: false),
-                    Prioridade = table.Column<string>(nullable: true),
+                    Descricao = table.Column<string>(maxLength: 100, nullable: false),
+                    Prioridade = table.Column<string>(maxLength: 25, nullable: true),
                     DataCadastro = table.Column<DateTime>(nullable: false),
-                    CriadorId = table.Column<int>(nullable: false),
                     FoiResolvido = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bugs", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Bugs_Desenvolvedores_CriadorId",
-                        column: x => x.CriadorId,
-                        principalTable: "Desenvolvedores",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bugs_Desenvolvedores_DesenvolvedorId",
                         column: x => x.DesenvolvedorId,
@@ -147,11 +141,6 @@ namespace GerenciaProjetos.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bugs_CriadorId",
-                table: "Bugs",
-                column: "CriadorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bugs_DesenvolvedorId",
