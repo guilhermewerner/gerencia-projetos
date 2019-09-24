@@ -40,7 +40,7 @@
                         <td>@b.Id</td>
                         <td>@b.Descricao</td>
                         <td>@b.FoiResolvido</td>
-                        <td>@b.DataCadastro</td>
+                        <td>@b.DataCadastro.ToString("dd/MM/yyyy")</td>
                         <td>@b.Prioridade</td>
                         <td>
                             <a asp-area="" asp-controller="Bugs" asp-action="Edit" asp-route-id="@b.Id">
