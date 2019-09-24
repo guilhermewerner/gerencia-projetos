@@ -85,6 +85,8 @@ namespace GerenciaProjetos.Controllers
         {
             if (ModelState.IsValid)
             {
+                ctx.Entry(req).Property(r => r.EFuncional).IsModified = true;
+                ctx.Entry(req).Property(r => r.DataEntrega).IsModified = true;
                 ctx.Entry(req).Property(r => r.Descricao).IsModified = true;
                 ctx.Entry(req).Property(r => r.Observacoes).IsModified = true;
                 ctx.Entry(req).Property(r => r.ProjetoId).IsModified = true;

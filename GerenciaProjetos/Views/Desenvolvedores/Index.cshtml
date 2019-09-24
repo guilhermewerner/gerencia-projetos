@@ -28,7 +28,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Admin</th>
+                    <th scope="col">É Admin</th>
                     <th scope="col">Opções</th>
                 </tr>
             </thead>
@@ -39,16 +39,7 @@
                         <td>@d.Id</td>
                         <td>@d.Nome</td>
                         <td>@d.Email</td>
-                        <td>
-                            @if (d.EAdmin == true)
-                            {
-                                <span>Sim</span>
-                            }
-                            else
-                            {
-                                <span>Não</span>
-                            }
-                        </td>
+                        <td>@d.EAdmin</td>
                         <td>
                             <a asp-area="" asp-controller="Desenvolvedores" asp-action="Edit" asp-route-id="@d.Id">
                                 <i class="fas fa-edit"></i>

@@ -14,16 +14,19 @@ namespace GerenciaProjetos.Models
 
         public int DesenvolvedorId { get; set; }
         public Desenvolvedor Desenvolvedor { get; set; }
-        
+    
         public int RequisitoId { get; set; }
         public Requisito Requisito { get; set; }
-        
+
+        [MaxLength(100)]
+        [Required(ErrorMessage = "Este campo é obrigatório.")]
+        public string Descricao { get; set; }
+
+        [MaxLength(25)]
         public string Prioridade { get; set; }
         
+        [DataType(DataType.Date)]
         public DateTime DataCadastro { get; set; }
-        
-        public int CriadorId { get; set; }
-        public Desenvolvedor Criador { get; set; }
 
         public bool FoiResolvido { get; set; }
     }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenciaProjetos.Migrations
 {
     [DbContext(typeof(GerenciaContext))]
-    [Migration("20190922115736_1")]
+    [Migration("20190924114622_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,6 +89,8 @@ namespace GerenciaProjetos.Migrations
                     b.Property<int>("DesenvolvedorId");
 
                     b.Property<int>("RequisitoId");
+
+                    b.Property<TimeSpan>("TempoGasto");
 
                     b.HasKey("DesenvolvedorId", "RequisitoId");
 

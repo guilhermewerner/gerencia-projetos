@@ -128,7 +128,8 @@ namespace GerenciaProjetos.Migrations
                 columns: table => new
                 {
                     DesenvolvedorId = table.Column<int>(nullable: false),
-                    RequisitoId = table.Column<int>(nullable: false)
+                    RequisitoId = table.Column<int>(nullable: false),
+                    TempoGasto = table.Column<TimeSpan>(nullable: false)
                 },
                 constraints: table =>
                 {

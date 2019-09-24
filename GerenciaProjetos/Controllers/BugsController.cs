@@ -97,16 +97,12 @@ namespace GerenciaProjetos.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*
                 ctx.Entry(bug).Property(r => r.DesenvolvedorId).IsModified = true;
                 ctx.Entry(bug).Property(r => r.RequisitoId).IsModified = true;
-                ctx.Entry(bug).Property(r => r.CriadorId).IsModified = true;
+                ctx.Entry(bug).Property(r => r.FoiResolvido).IsModified = true;
+                ctx.Entry(bug).Property(r => r.Descricao).IsModified = true;
                 ctx.Entry(bug).Property(r => r.Prioridade).IsModified = true;
-                */
-
-                bug.DataCadastro = DateTime.Now;
-
-                ctx.Bugs.Update(bug);
+                
                 ctx.SaveChanges();
 
                 return RedirectToAction("Index", "Home");

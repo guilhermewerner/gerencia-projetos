@@ -28,6 +28,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Observações</th>
+                    <th scope="col">É Funcional</th>
                     <th scope="col">Data de Cadastro</th>
                     <th scope="col">Data de Entrega</th>
                     <th scope="col">Opções</th>
@@ -40,8 +41,9 @@
                         <td>@r.Id</td>
                         <td>@r.Descricao</td>
                         <td>@r.Observacoes</td>
-                        <td>@r.DataCadastro</td>
-                        <td>@r.DataEntrega</td>
+                        <td>@r.EFuncional</td>
+                        <td>@r.DataCadastro.ToString("dd/MM/yyyy")</td>
+                        <td>@r.DataEntrega.ToString("dd/MM/yyyy")</td>
                         <td>
                             <a asp-area="" asp-controller="Requisitos" asp-action="Edit" asp-route-id="@r.Id">
                                 <i class="fas fa-edit"></i>

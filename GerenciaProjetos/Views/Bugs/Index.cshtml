@@ -26,7 +26,8 @@
             <thead class="border-bottom">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Criador</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Foi Resolvido</th>
                     <th scope="col">Data de Cadastro</th>
                     <th scope="col">Prioridade</th>
                     <th scope="col">Opções</th>
@@ -37,8 +38,9 @@
                 {
                     <tr>
                         <td>@b.Id</td>
-                        <td>@b.CriadorId</td>
-                        <td>@b.DataCadastro</td>
+                        <td>@b.Descricao</td>
+                        <td>@b.FoiResolvido</td>
+                        <td>@b.DataCadastro.ToString("dd/MM/yyyy")</td>
                         <td>@b.Prioridade</td>
                         <td>
                             <a asp-area="" asp-controller="Bugs" asp-action="Edit" asp-route-id="@b.Id">

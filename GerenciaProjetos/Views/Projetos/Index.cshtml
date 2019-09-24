@@ -38,7 +38,7 @@
                     <tr>
                         <td>@p.Id</td>
                         <td>@p.Nome</td>
-                        <td>@p.DataEntrega</td>
+                        <td>@p.DataEntrega.ToString("dd/MM/yyyy")</td>
                         <td>@p.Solicitante</td>
                         <td>
                             <a asp-area="" asp-controller="Projetos" asp-action="Edit" asp-route-id="@p.Id">

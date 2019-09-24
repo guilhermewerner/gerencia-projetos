@@ -24,10 +24,14 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Criador</label>
-                    <select asp-for="CriadorId" class="form-control" asp-items="ViewBag.Desenvolvedores">
-                        <option></option>
-                    </select>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="admin" asp-for="FoiResolvido">
+                        <label class="custom-control-label" for="admin">Foi Resolvido?</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <textarea class="form-control" rows="5" asp-for="Descricao"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Prioridade</label>
