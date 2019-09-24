@@ -12,18 +12,24 @@
         <div class="card-body">
             <form method="post">
                 <div class="form-group">
+                    <label>Projeto</label>
+                    <select asp-for="ProjetoId" class="form-control" asp-items="ViewBag.Projetos">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="admin" asp-for="EFuncional">
+                        <label class="custom-control-label" for="admin">É Fucional?</label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label>Descrição</label>
                     <textarea class="form-control" rows="5" asp-for="Descricao"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Observações</label>
                     <textarea class="form-control" rows="5" asp-for="Observacoes"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Projeto</label>
-                    <select asp-for="ProjetoId" class="form-control" asp-items="ViewBag.Projetos">
-                        <option></option>
-                    </select>
                 </div>
                 <div class="form-group">
                     <label>Data de Entrega</label>

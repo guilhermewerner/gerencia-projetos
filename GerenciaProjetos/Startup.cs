@@ -33,8 +33,10 @@ namespace GerenciaProjetos
             });
 
             services.AddRouting(options => options.LowercaseUrls = true);
+            
+            //services.AddDbContext<GerenciaContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<GerenciaContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<GerenciaContext>(options => options.UseMySql(Configuration.GetConnectionString("LaboratConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
