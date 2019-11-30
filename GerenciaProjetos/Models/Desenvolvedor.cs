@@ -28,6 +28,11 @@ namespace GerenciaProjetos.Models
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 
+        [NotMapped]
+        [Required(ErrorMessage = "Este campo é obrigatório.")]
+        [Compare("Senha", ErrorMessage = "As senhas não combinam.")]
+        public string ConfirmarSenha { get; set; }
+
         public bool EAdmin { get; set; }
     }
 }

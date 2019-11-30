@@ -55,7 +55,7 @@ namespace GerenciaProjetos.Controllers
                 ctx.Bugs.Add(bug);
                 ctx.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {
@@ -87,7 +87,7 @@ namespace GerenciaProjetos.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
         }
 
@@ -97,7 +97,8 @@ namespace GerenciaProjetos.Controllers
         {
             if (ModelState.IsValid)
             {
-                ctx.Entry(bug).Property(r => r.DesenvolvedorId).IsModified = true;
+                ctx.Entry(bug).Property(r => r.CriadorId).IsModified = true;
+                ctx.Entry(bug).Property(r => r.SolucionadorId).IsModified = true;
                 ctx.Entry(bug).Property(r => r.RequisitoId).IsModified = true;
                 ctx.Entry(bug).Property(r => r.FoiResolvido).IsModified = true;
                 ctx.Entry(bug).Property(r => r.Descricao).IsModified = true;
@@ -105,7 +106,7 @@ namespace GerenciaProjetos.Controllers
                 
                 ctx.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {
@@ -123,7 +124,7 @@ namespace GerenciaProjetos.Controllers
                 ctx.SaveChanges();
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
     }
 }

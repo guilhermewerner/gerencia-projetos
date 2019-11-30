@@ -40,7 +40,7 @@ namespace GerenciaProjetos.Controllers
                 ctx.Desenvolvedores.Add(dev);
                 ctx.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace GerenciaProjetos.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
         }
 
@@ -73,7 +73,7 @@ namespace GerenciaProjetos.Controllers
                 ctx.Desenvolvedores.Update(dev);
                 ctx.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {
@@ -91,7 +91,7 @@ namespace GerenciaProjetos.Controllers
                 ctx.SaveChanges();
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
     }
 }

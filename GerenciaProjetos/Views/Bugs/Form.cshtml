@@ -13,7 +13,13 @@
             <form method="post">
                 <div class="form-group">
                     <label>Desenvolvedor</label>
-                    <select asp-for="DesenvolvedorId" class="form-control" asp-items="ViewBag.Desenvolvedores">
+                    <select asp-for="CriadorId" class="form-control" asp-items="ViewBag.Desenvolvedores">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Desenvolvedor</label>
+                    <select asp-for="SolucionadorId" class="form-control" asp-items="ViewBag.Desenvolvedores">
                         <option></option>
                     </select>
                 </div>

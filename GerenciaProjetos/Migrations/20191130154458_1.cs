@@ -93,7 +93,8 @@ namespace GerenciaProjetos.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    DesenvolvedorId = table.Column<int>(nullable: false),
+                    CriadorId = table.Column<int>(nullable: false),
+                    SolucionadorId = table.Column<int>(nullable: false),
                     RequisitoId = table.Column<int>(nullable: false),
                     Descricao = table.Column<string>(maxLength: 100, nullable: false),
                     Prioridade = table.Column<string>(maxLength: 25, nullable: true),
@@ -104,8 +105,8 @@ namespace GerenciaProjetos.Migrations
                 {
                     table.PrimaryKey("PK_Bugs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Bugs_Desenvolvedores_DesenvolvedorId",
-                        column: x => x.DesenvolvedorId,
+                        name: "FK_Bugs_Desenvolvedores_CriadorId",
+                        column: x => x.CriadorId,
                         principalTable: "Desenvolvedores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -113,6 +114,12 @@ namespace GerenciaProjetos.Migrations
                         name: "FK_Bugs_Requisitos_RequisitoId",
                         column: x => x.RequisitoId,
                         principalTable: "Requisitos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Bugs_Desenvolvedores_SolucionadorId",
+                        column: x => x.SolucionadorId,
+                        principalTable: "Desenvolvedores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -143,14 +150,19 @@ namespace GerenciaProjetos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bugs_DesenvolvedorId",
+                name: "IX_Bugs_CriadorId",
                 table: "Bugs",
-                column: "DesenvolvedorId");
+                column: "CriadorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bugs_RequisitoId",
                 table: "Bugs",
                 column: "RequisitoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bugs_SolucionadorId",
+                table: "Bugs",
+                column: "SolucionadorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DesenvolvedorProjeto_ProjetoId",

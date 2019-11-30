@@ -31,5 +31,7 @@ namespace GerenciaProjetos.Models
         public int ProjetoId { get; set; }
 
         public Projeto Projeto { get; set; }
+
+        public IEnumerable<Bug> Bugs { get; set; }
     }
 }

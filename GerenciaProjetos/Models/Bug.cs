@@ -12,9 +12,12 @@ namespace GerenciaProjetos.Models
         [Key]
         public int Id { get; set; }
 
-        public int DesenvolvedorId { get; set; }
-        public Desenvolvedor Desenvolvedor { get; set; }
-    
+        public int CriadorId { get; set; }
+        public Desenvolvedor Criador { get; set; }
+
+        public int SolucionadorId { get; set; }
+        public Desenvolvedor Solucionador { get; set; }
+
         public int RequisitoId { get; set; }
         public Requisito Requisito { get; set; }
 

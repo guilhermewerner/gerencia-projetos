@@ -35,6 +35,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -51,92 +54,12 @@
     <footer>
         <div class="container">
             <div class="text-center">
-                <ul class="list-inline">
-                    @if (true)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="https://twitter.com/tribufucom" target="_blank" style="color: #00aced;">
-                                <i class="fab fa-2x fa-twitter"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (true)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="https://www.youtube.com/channel/UC_lQ7lHpEQTNt65v-r2JcOg?ab_channel=GuiNerd" target="_blank" style="color: #e62117;">
-                                <i class="fab fa-2x fa-youtube"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (true)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="https://steamcommunity.com/groups/tribufucom" target="_blank" style="color: #231f20;">
-                                <i class="fab fa-2x fa-steam"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (false)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="#" target="_blank" style="color: #ff4500;">
-                                <i class="fab fa-2x fa-reddit"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (false)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="#" target="_blank" style="color: #3d6594;">
-                                <i class="fab fa-2x fa-facebook-square"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (true)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="https://github.com/TribuFu" target="_blank" style="color: #24292e;">
-                                <i class="fab fa-2x fa-github"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (true)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="https://www.instagram.com/tribufucom/" target="_blank" style="color: #e13d62;">
-                                <i class="fab fa-2x fa-instagram"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (true)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="https://www.linkedin.com/company/tribufu/" target="_blank" style="color: #3d6594;">
-                                <i class="fab fa-2x fa-linkedin"></i>
-                            </a>
-                        </li>
-                    }
-                    @if (false)
-                    {
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" href="#" target="_blank" style="color: #bd081c;">
-                                <i class="fab fa-2x fa-pinterest"></i>
-                            </a>
-                        </li>
-                    }
+                <ul class="list-inline" style="margin-bottom:0em;">
+                    <li class="list-inline-item">
+                        <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="Privacy" asp-route-id="">Privacidade</a>
+                    </li>
                 </ul>
-                @if (true)
-                {
-                    <ul class="list-inline" style="margin-bottom:0em;">
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="Privacy" asp-route-id="">Privacidade</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="" asp-route-id="">Contate Nos</a>
-                        </li>
-                    </ul>
-                    <small style="color:#8d9aa6;">Copyright © TribuFu @DateTime.Now.Year</small>
-                }
+                <small style="color:#8d9aa6;">Copyright © TribuFu @DateTime.Now.Year</small>
             </div>
         </div>
     </footer>

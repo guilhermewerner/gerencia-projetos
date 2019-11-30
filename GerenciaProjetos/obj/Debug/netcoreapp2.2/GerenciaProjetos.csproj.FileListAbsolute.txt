@@ -74,3 +74,5 @@ C:\Users\0033899\Documents\GitHub\GerenciaProjetos\GerenciaProjetos\obj\Debug\ne
 C:\Users\0033899\Documents\GitHub\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\GerenciaProjetos.dll
 C:\Users\0033899\Documents\GitHub\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\GerenciaProjetos.pdb
 C:\Users\0033899\Documents\GitHub\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\GerenciaProjetos.csproj.CopyComplete
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Home\Cadastro.g.cshtml.cs
+C:\Users\GuiNerd\source\repos\GerenciaProjetos\GerenciaProjetos\obj\Debug\netcoreapp2.2\Razor\Views\Dashboard\Index.g.cshtml.cs

@@ -1,207 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "Entrar";
 }
+
+@model GerenciaProjetos.Models.Desenvolvedor
 
 <h3>@ViewData["Title"]</h3>
 
 <section class="py-3">
     <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-6">
-                    <a class="text-decoration-none" asp-area="" asp-controller="Desenvolvedores" asp-action="Index">Desenvolvedores</a>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" asp-for="Email">
                 </div>
-                <div class="col-6">
-                    <div class="text-right">
-                        <a asp-area="" asp-controller="Desenvolvedores" asp-action="New">
-                            <i class="fas fa-plus-circle"></i>
-                        </a>
-                    </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" class="form-control" asp-for="Senha">
                 </div>
-            </div>
+                <div class="text-right">
+                    <a class="btn btn-link text-decoration-none" asp-area="" asp-controller="Home" asp-action="Cadastro" asp-route-id="">Cadastrar</a>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </div>
+            </form>
         </div>
-        <table class="table table-borderless table-hover">
-            <thead class="border-bottom">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">É Admin</th>
-                    <th scope="col">Opções</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Desenvolvedor d in ViewBag.Desenvolvedores)
-                {
-                    <tr>
-                        <td>@d.Id</td>
-                        <td>@d.Nome</td>
-                        <td>@d.Email</td>
-                        <td>@d.EAdmin</td>
-                        <td>
-                            <a asp-area="" asp-controller="Desenvolvedores" asp-action="Edit" asp-route-id="@d.Id">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a asp-area="" asp-controller="Desenvolvedores" asp-action="Del" asp-route-id="@d.Id">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section class="py-3">
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-6">
-                    <a class="text-decoration-none" asp-area="" asp-controller="Projetos" asp-action="Index">Projetos</a>
-                </div>
-                <div class="col-6">
-                    <div class="text-right">
-                        <a asp-area="" asp-controller="Projetos" asp-action="New">
-                            <i class="fas fa-plus-circle"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <table class="table table-borderless table-hover">
-            <thead class="border-bottom">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data de Entrega</th>
-                    <th scope="col">Solicitante</th>
-                    <th scope="col">Opções</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Projeto p in ViewBag.Projetos)
-                {
-                    <tr>
-                        <td>@p.Id</td>
-                        <td>@p.Nome</td>
-                        <td>@p.DataEntrega</td>
-                        <td>@p.Solicitante</td>
-                        <td>
-                            <a asp-area="" asp-controller="Projetos" asp-action="Edit" asp-route-id="@p.Id">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a asp-area="" asp-controller="Projetos" asp-action="Del" asp-route-id="@p.Id">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section class="py-3">
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-6">
-                    <a class="text-decoration-none" asp-area="" asp-controller="Requisitos" asp-action="Index">Requisitos</a>
-                </div>
-                <div class="col-6">
-                    <div class="text-right">
-                        <a asp-area="" asp-controller="Requisitos" asp-action="New">
-                            <i class="fas fa-plus-circle"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <table class="table table-borderless table-hover">
-            <thead class="border-bottom">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Observações</th>
-                    <th scope="col">É Funcional</th>
-                    <th scope="col">Data de Cadastro</th>
-                    <th scope="col">Data de Entrega</th>
-                    <th scope="col">Opções</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Requisito r in ViewBag.Requisitos)
-                {
-                    <tr>
-                        <td>@r.Id</td>
-                        <td>@r.Descricao</td>
-                        <td>@r.Observacoes</td>
-                        <td>@r.EFuncional</td>
-                        <td>@r.DataCadastro</td>
-                        <td>@r.DataEntrega</td>
-                        <td>
-                            <a asp-area="" asp-controller="Requisitos" asp-action="Edit" asp-route-id="@r.Id">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a asp-area="" asp-controller="Requisitos" asp-action="Del" asp-route-id="@r.Id">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section class="py-3">
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-6">
-                    <a class="text-decoration-none" asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a>
-                </div>
-                <div class="col-6">
-                    <div class="text-right">
-                        <a asp-area="" asp-controller="Bugs" asp-action="New">
-                            <i class="fas fa-plus-circle"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <table class="table table-borderless table-hover">
-            <thead class="border-bottom">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Foi Resolvido</th>
-                    <th scope="col">Data de Cadastro</th>
-                    <th scope="col">Prioridade</th>
-                    <th scope="col">Opções</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Bug b in ViewBag.Bugs)
-                {
-                    <tr>
-                        <td>@b.Id</td>
-                        <td>@b.Descricao</td>
-                        <td>@b.FoiResolvido</td>
-                        <td>@b.DataCadastro</td>
-                        <td>@b.Prioridade</td>
-                        <td>
-                            <a asp-area="" asp-controller="Bugs" asp-action="Edit" asp-route-id="@b.Id">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a asp-area="" asp-controller="Bugs" asp-action="Del" asp-route-id="@b.Id">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
     </div>
 </section>

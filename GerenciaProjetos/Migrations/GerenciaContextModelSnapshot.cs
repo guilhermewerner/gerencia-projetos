@@ -22,13 +22,13 @@ namespace GerenciaProjetos.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("CriadorId");
+
                     b.Property<DateTime>("DataCadastro");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasMaxLength(100);
-
-                    b.Property<int>("DesenvolvedorId");
 
                     b.Property<bool>("FoiResolvido");
 
@@ -37,11 +37,15 @@ namespace GerenciaProjetos.Migrations
 
                     b.Property<int>("RequisitoId");
 
+                    b.Property<int>("SolucionadorId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("DesenvolvedorId");
+                    b.HasIndex("CriadorId");
 
                     b.HasIndex("RequisitoId");
+
+                    b.HasIndex("SolucionadorId");
 
                     b.ToTable("Bugs");
                 });
@@ -147,14 +151,19 @@ namespace GerenciaProjetos.Migrations
 
             modelBuilder.Entity("GerenciaProjetos.Models.Bug", b =>
                 {
-                    b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Desenvolvedor")
+                    b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Criador")
                         .WithMany()
-                        .HasForeignKey("DesenvolvedorId")
+                        .HasForeignKey("CriadorId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("GerenciaProjetos.Models.Requisito", "Requisito")
-                        .WithMany()
+                        .WithMany("Bugs")
                         .HasForeignKey("RequisitoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("GerenciaProjetos.Models.Desenvolvedor", "Solucionador")
+                        .WithMany()
+                        .HasForeignKey("SolucionadorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
