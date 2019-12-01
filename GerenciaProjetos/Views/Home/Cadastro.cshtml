@@ -13,10 +13,16 @@
                 <div class="form-group">
                     <label>Nome</label>
                     <input type="text" class="form-control" asp-for="Nome">
+                    <small>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" class="form-control" asp-for="Email">
+                    <small>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="form-group">
                     <div class="custom-control custom-checkbox">
@@ -27,13 +33,19 @@
                 <div class="form-group">
                     <label>Senha</label>
                     <input type="password" class="form-control" asp-for="Senha">
+                    <small>
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label>Confirme</label>
                     <input type="password" class="form-control" asp-for="ConfirmarSenha">
+                    <small>
+                        <span asp-validation-for="ConfirmarSenha" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="text-right">
-                    <a class="btn btn-secondary" asp-area="" asp-controller="Desenvolvedores" asp-action="Index" asp-route-id="">Cancelar</a>
+                    <a class="btn btn-secondary" asp-area="" asp-controller="Dashboard" asp-action="Index" asp-route-id="">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

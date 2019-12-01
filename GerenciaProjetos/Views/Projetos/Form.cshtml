@@ -14,17 +14,26 @@
                 <div class="form-group">
                     <label>Nome</label>
                     <input type="text" class="form-control" asp-for="Nome">
+                    <small>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label>Data de Entrega</label>
                     <input type="date" class="form-control" asp-for="DataEntrega">
+                    <small>
+                        <span asp-validation-for="DataEntrega" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label>Solicitante</label>
                     <input type="text" class="form-control" asp-for="Solicitante">
+                    <small>
+                        <span asp-validation-for="Solicitante" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="text-right">
-                    <a class="btn btn-secondary" asp-area="" asp-controller="Projetos" asp-action="Index" asp-route-id="">Cancelar</a>
+                    <a class="btn btn-secondary" asp-area="" asp-controller="Dashboard" asp-action="Index" asp-route-id="">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

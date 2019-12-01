@@ -26,17 +26,26 @@
                 <div class="form-group">
                     <label>Descrição</label>
                     <textarea class="form-control" rows="5" asp-for="Descricao"></textarea>
+                    <small>
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label>Observações</label>
                     <textarea class="form-control" rows="5" asp-for="Observacoes"></textarea>
+                    <small>
+                        <span asp-validation-for="Observacoes" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label>Data de Entrega</label>
                     <input type="date" class="form-control" asp-for="DataEntrega">
+                    <small>
+                        <span asp-validation-for="DataEntrega" class="text-danger"></span>
+                    </small>
                 </div>
                 <div class="text-right">
-                    <a class="btn btn-secondary" asp-area="" asp-controller="Requisitos" asp-action="Index" asp-route-id="">Cancelar</a>
+                    <a class="btn btn-secondary" asp-area="" asp-controller="Dashboard" asp-action="Index" asp-route-id="">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

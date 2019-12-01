@@ -63,7 +63,7 @@ namespace GerenciaProjetos.Controllers
             }
             else
             {
-                return View("Form", dev);
+                return View("Cadastro", dev);
             }
         }
 
